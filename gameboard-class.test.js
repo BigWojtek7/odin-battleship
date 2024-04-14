@@ -10,6 +10,6 @@ describe("gameboard", () => {
   });
   test("is ship placed", () => {
     gameboard.dropShip(3, 4, 4);
-    expect(gameboard.board[3][4]).toBe(new Ship(4));
+    expect(gameboard.board[3][4]).toMatchObject({ "length": 4, "numberOfHits": 0 });
   });
 });

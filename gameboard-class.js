@@ -18,8 +18,8 @@ export default class Gameboard {
   }
 
   dropShip(row, column, shipLength) {
-    if (this.board[row][column] === null)
-      this.board[row][column] = new Ship(shipLength);
+    if (this.getBoard[row][column] === null)
+      this.getBoard[row][column] = new Ship(shipLength);
   }
 }
 const gameboard = new Gameboard
