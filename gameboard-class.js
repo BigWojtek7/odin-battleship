@@ -24,7 +24,10 @@ export default class Gameboard {
   }
 
   receiveAttack(row, column) {
-    if (this.board[row][column] !== null) {
+    if (
+      this.board[row][column] !== null &&
+      this.board[row][column] !== "miss"
+    ) {
       this.board[row][column].hit();
       return true;
     }
@@ -32,8 +35,21 @@ export default class Gameboard {
     this.board[row][column] = "miss";
     return false;
   }
+
+  isAllSunk() {
+    // const ships = this.board.map((row) =>
+    //   row.map((cell) => cell !== null || cell !== "miss")
+    // );
+    // return ships
+    return false
+  }
 }
 const gameboard = new Gameboard();
 console.log(gameboard.board);
 gameboard.dropShip(3, 4, 4);
 console.log(gameboard.board[3][4]);
+
+
+// const array = gameboard.board.filter( row =>
+// row.map(cell => cell))
+// console.log(1, array)

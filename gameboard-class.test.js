@@ -1,5 +1,5 @@
 import Gameboard from "./gameboard-class";
-import Ship from "./ship-class";
+// import Ship from "./ship-class";
 
 describe("gameboard", () => {
   const gameboard = new Gameboard();
@@ -14,9 +14,12 @@ describe("gameboard", () => {
   });
 
   test("miss hit", () => {
-    expect(gameboard.receiveAttack(2,3)).toBe(false)
-  })
+    expect(gameboard.receiveAttack(2, 3)).toBe(false);
+  });
   test("receive hit", () => {
-    expect(gameboard.receiveAttack(3,4)).toBe(true)
-  })
+    expect(gameboard.receiveAttack(3, 4)).toBe(true);
+  });
+  test("all sunk", () => {
+    expect(gameboard.isAllSunk()).toBe(false);
+  });
 });
