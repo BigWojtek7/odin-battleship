@@ -1,4 +1,4 @@
-import Ship from "./src/ship-class";
+import Ship from "./ship-class";
 
 export default class Gameboard {
   constructor() {

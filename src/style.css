@@ -1,0 +1,13 @@
+*{ box-sizing: border-box; }
+
+.board {
+  display: grid;
+  border: 5px black solid;
+  grid-template-columns: repeat(10, 1fr);
+  height: 400px;
+  width: 400px;
+  margin: 0 auto;
+}
+.cell {
+  cursor: pointer;
+}
