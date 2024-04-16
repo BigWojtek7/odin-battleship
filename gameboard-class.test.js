@@ -20,6 +20,7 @@ describe("gameboard", () => {
     expect(gameboard.receiveAttack(3, 4)).toBe(true);
   });
   test("all sunk", () => {
+    gameboard.dropShip(1, 2, 3);
     expect(gameboard.isAllSunk()).toBe(false);
   });
 });

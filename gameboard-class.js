@@ -1,4 +1,4 @@
-import Ship from "./ship-class";
+import Ship from "./src/ship-class";
 
 export default class Gameboard {
   constructor() {
@@ -24,32 +24,47 @@ export default class Gameboard {
   }
 
   receiveAttack(row, column) {
-    if (
-      this.board[row][column] !== null &&
-      this.board[row][column] !== "miss"
-    ) {
+    if (this.board[row][column] !== null && this.board[row][column] !== 0) {
       this.board[row][column].hit();
       return true;
     }
 
-    this.board[row][column] = "miss";
+    this.board[row][column] = 0;
     return false;
   }
 
   isAllSunk() {
-    // const ships = this.board.map((row) =>
-    //   row.map((cell) => cell !== null || cell !== "miss")
-    // );
-    // return ships
-    return false
+    const array = this.board
+      .map((row) => row.filter((cell) => cell))
+      .filter((subArray) => subArray.length > 0)
+      .map((row) => row[0]);
+
+    console.log("arr0", array);
+    for (let i = 0; i < array.length; i += 1) {
+      // console.log("arr", array[i]);
+      if (!array[i].isSunk()) return false
+    }
+
+    return true;
   }
 }
 const gameboard = new Gameboard();
-console.log(gameboard.board);
+
 gameboard.dropShip(3, 4, 4);
-console.log(gameboard.board[3][4]);
+gameboard.dropShip(5, 4, 3);
+gameboard.receiveAttack(2, 1);
 
+// const array = gameboard.board
+//   .map((row) => row.filter((cell) => cell))
+//   .filter((subArray) => subArray.length > 0);
+// console.log(1, array);
 
-// const array = gameboard.board.filter( row =>
-// row.map(cell => cell))
-// console.log(1, array)
+// for (const obj in array){
+//   if (!obj.isSunk()) return false
+// }
+
+// array.forEach((object) => {
+//   if (object.isSunk()) {
+//     return true;
+//   }
+// });
