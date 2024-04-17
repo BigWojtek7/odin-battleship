@@ -1,6 +1,7 @@
 *{ box-sizing: border-box; }
 
-.board {
+.board1,
+.board2 {
   display: grid;
   border: 5px black solid;
   grid-template-columns: repeat(10, 1fr);
@@ -8,6 +9,6 @@
   width: 400px;
   margin: 0 auto;
 }
-.cell {
+.board1 .cell {
   cursor: pointer;
 }

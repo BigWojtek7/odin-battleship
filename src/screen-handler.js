@@ -8,7 +8,8 @@ function screenHandler() {
   const game = new GameControl();
 
   // const playerTurnDiv = document.querySelector(".turn");
-  const boardDiv = document.querySelector(".board");
+  const boardDiv = document.querySelector(".board1");
+  const boardDiv2 = document.querySelector(".board2");
 
   game.boardPlayer2.dropShip(3, 4, 4);
   game.boardPlayer2.dropShip(3, 5, 4);
@@ -30,6 +31,18 @@ function screenHandler() {
         cellButton.dataset.row = rowIndex;
         cellButton.dataset.column = columnIndex;
         boardDiv.appendChild(cellButton);
+      });
+    });
+    
+    
+    game.boardPlayer1.board.forEach((row, rowIndex) => {
+      row.forEach((column, columnIndex) => {
+        const cellButton = document.createElement("button");
+        cellButton.classList.add("cell");
+
+        cellButton.dataset.row = rowIndex;
+        cellButton.dataset.column = columnIndex;
+        boardDiv2.appendChild(cellButton);
       });
     });
   };
