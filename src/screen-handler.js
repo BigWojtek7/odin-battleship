@@ -10,24 +10,33 @@ function screenHandler() {
   const boardDiv = document.querySelector(".board1");
   const boardDiv2 = document.querySelector(".board2");
 
-  game.boardPlayer2.dropShip(3, 4, 4);
-  game.boardPlayer2.dropShip(3, 5, 4);
-  game.boardPlayer2.dropShip(3, 6, 4);
-  game.boardPlayer2.dropShip(3, 7, 4);
+  
 
-  game.boardPlayer2.dropShip(5, 4, 3);
-  game.boardPlayer2.dropShip(6, 4, 3);
-  game.boardPlayer2.dropShip(7, 4, 3);
+  game.boardPlayer2.dropShip([[3,4],[3,5],[3,6],[3,7]],4)
+  game.boardPlayer2.dropShip([[5,4],[6,4],[7,4]],3)
+
+  game.boardPlayer1.dropShip([[3,4],[3,5],[3,6],[3,7]],4)
+  game.boardPlayer1.dropShip([[5,4],[6,4],[7,4]],3)
+  console.log(game.boardPlayer2.board)
+
+  // game.boardPlayer2.dropShip(3, 4, 4);
+  // game.boardPlayer2.dropShip(3, 5, 4);
+  // game.boardPlayer2.dropShip(3, 6, 4);
+  // game.boardPlayer2.dropShip(3, 7, 4);
+
+  // game.boardPlayer2.dropShip(5, 4, 3);
+  // game.boardPlayer2.dropShip(6, 4, 3);
+  // game.boardPlayer2.dropShip(7, 4, 3);
 
 
-  game.boardPlayer1.dropShip(0, 0, 4);
-  game.boardPlayer1.dropShip(0, 1, 4);
-  game.boardPlayer1.dropShip(0, 2, 4);
-  game.boardPlayer1.dropShip(0, 3, 4);
+  // game.boardPlayer1.dropShip(0, 0, 4);
+  // game.boardPlayer1.dropShip(0, 1, 4);
+  // game.boardPlayer1.dropShip(0, 2, 4);
+  // game.boardPlayer1.dropShip(0, 3, 4);
 
-  game.boardPlayer1.dropShip(2, 4, 3);
-  game.boardPlayer1.dropShip(3, 4, 3);
-  game.boardPlayer1.dropShip(4, 4, 3);
+  // game.boardPlayer1.dropShip(2, 4, 3);
+  // game.boardPlayer1.dropShip(3, 4, 3);
+  // game.boardPlayer1.dropShip(4, 4, 3);
 
   const updateDisplay = () => {
     boardDiv.textContent = "";

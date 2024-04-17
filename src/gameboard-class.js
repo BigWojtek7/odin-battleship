@@ -18,9 +18,24 @@ export default class Gameboard {
     return this.board;
   }
 
-  dropShip(row, column, shipLength) {
-    if (this.board[row][column] === null)
-      this.board[row][column] = new Ship(shipLength);
+  dropShip(array, shipLength) {
+    console.log("funny", array)
+    const newShip = new Ship(shipLength);
+    array.forEach( el => {
+      this.board[el[0]][el[1]] = newShip;
+    });
+
+    // if (!this.board[row][column] === null) return
+    // let count = 0
+    // let newShip;
+    // if (count === 0){
+    //   newShip = new Ship(shipLength);
+    // }
+
+    // if(shipLength === 4){
+    //   this.board[row][column] = newShip
+    //   count += 1
+    // }
   }
 
   receiveAttack(row, column) {
@@ -42,17 +57,17 @@ export default class Gameboard {
     console.log("arr0", array);
     for (let i = 0; i < array.length; i += 1) {
       // console.log("arr", array[i]);
-      if (!array[i].isSunk()) return false
+      if (!array[i].isSunk()) return false;
     }
 
     return true;
   }
 }
-const gameboard = new Gameboard();
+// const gameboard = new Gameboard();
 
-gameboard.dropShip(3, 4, 4);
-gameboard.dropShip(5, 4, 3);
-gameboard.receiveAttack(2, 1);
+// gameboard.dropShip(3, 4, 4);
+// gameboard.dropShip(5, 4, 3);
+// gameboard.receiveAttack(2, 1);
 
 // const array = gameboard.board
 //   .map((row) => row.filter((cell) => cell))
