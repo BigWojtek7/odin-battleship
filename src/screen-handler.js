@@ -20,6 +20,15 @@ function screenHandler() {
   game.boardPlayer2.dropShip(6, 4, 3);
   game.boardPlayer2.dropShip(7, 4, 3);
 
+  game.boardPlayer1.dropShip(0, 0, 4);
+  game.boardPlayer1.dropShip(0, 1, 4);
+  game.boardPlayer1.dropShip(0, 2, 4);
+  game.boardPlayer1.dropShip(0, 3, 4);
+
+  game.boardPlayer1.dropShip(2, 4, 3);
+  game.boardPlayer1.dropShip(3, 4, 3);
+  game.boardPlayer1.dropShip(4, 4, 3);
+
   const updateDisplay = () => {
     boardDiv.textContent = "";
 
@@ -33,8 +42,7 @@ function screenHandler() {
         boardDiv.appendChild(cellButton);
       });
     });
-    
-    
+
     game.boardPlayer1.board.forEach((row, rowIndex) => {
       row.forEach((column, columnIndex) => {
         const cellButton = document.createElement("button");
@@ -56,9 +64,9 @@ function screenHandler() {
     game.playRound(buttonRow, buttonColumn);
 
     if (game.activeBoard.board[buttonRow][buttonColumn] === 0) {
-      console.log(e.target)
+      console.log(e.target);
       e.target.style.background = "red";
-    }else {
+    } else {
       e.target.style.background = "green";
     }
   }
