@@ -38,10 +38,12 @@ export default class GameControl {
     this.player1 = new Player();
     this.player2 = new Player();
     this.activePlayer = this.player1;
-    this.activeBoard = this.boardPlayer2;
+    
 
     this.boardPlayer1 = new Gameboard();
     this.boardPlayer2 = new Gameboard();
+    this.activeBoard = this.boardPlayer2;
+    
   }
 
   switchTurns() {
@@ -55,7 +57,9 @@ export default class GameControl {
   }
 
   playRound(row, column) {
+    // console.log("1", this.activeBoard)
+    console.log("5", this.activeBoard)
     this.activePlayer.attack(this.activeBoard, row, column);
-    this.switchTurns();
+    // this.switchTurns();
   }
 }

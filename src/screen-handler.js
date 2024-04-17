@@ -41,12 +41,17 @@ function screenHandler() {
     if (!buttonRow) return;
     if (!buttonColumn) return;
     game.playRound(buttonRow, buttonColumn);
-    updateDisplay();
+
+    if (game.activeBoard.board[buttonRow][buttonColumn] === 0) {
+      console.log(e.target)
+      e.target.style.background = "red";
+    }else {
+      e.target.style.background = "green";
+    }
   }
 
   boardDiv.addEventListener("click", clickHandlerBoard);
 
   updateDisplay();
-  // return {updateDisplay}
 }
 screenHandler();

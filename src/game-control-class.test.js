@@ -1,7 +1,8 @@
-import gameControl from "."
+import GameControl from "./game-control-class"
 
 describe("game controller", () => {
-  test("is exist", () => {
-    expect()
+  const game = new GameControl
+  test("switch turns", () => {
+    expect(game.switchTurns())
   })
 })

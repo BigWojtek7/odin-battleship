@@ -3,6 +3,7 @@ export default class Player {
     this.computerUsedNumbers = [];
   }
 
+  // eslint-disable-next-line class-methods-use-this
   attack(object, row, column) {
     return object.receiveAttack(row, column);
   }
