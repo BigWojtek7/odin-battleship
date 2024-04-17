@@ -58,7 +58,7 @@ export default class GameControl {
 
   playRound(row, column) {
     // console.log("1", this.activeBoard)
-    console.log("5", this.activeBoard)
+    // console.log("5", this.activeBoard)
     this.activePlayer.attack(this.activeBoard, row, column);
     // this.switchTurns();
   }

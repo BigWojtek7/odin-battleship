@@ -2,7 +2,6 @@ import GameControl from "./game-control-class";
 
 import "./style.css";
 
-// import Gameboard from "./gameboard-class";
 
 function screenHandler() {
   const game = new GameControl();
@@ -46,7 +45,7 @@ function screenHandler() {
     game.boardPlayer1.board.forEach((row, rowIndex) => {
       row.forEach((column, columnIndex) => {
         const cellButton = document.createElement("button");
-        cellButton.classList.add("cell");
+        cellButton.classList.add("cell2");
 
         cellButton.dataset.row = rowIndex;
         cellButton.dataset.column = columnIndex;
@@ -64,11 +63,25 @@ function screenHandler() {
     game.playRound(buttonRow, buttonColumn);
 
     if (game.activeBoard.board[buttonRow][buttonColumn] === 0) {
-      console.log(e.target);
       e.target.style.background = "red";
     } else {
       e.target.style.background = "green";
     }
+
+    game.switchTurns();
+    game.activePlayer.computerAttack(game.activeBoard);
+    console.log("6", game.activePlayer.computerUsedNumbers);
+    game.activePlayer.computerUsedNumbers.forEach((arr) => {
+      const cell = document.querySelector(
+        `.cell2[data-row="${arr[0]}"][data-column="${arr[1]}"]`,
+      );
+      if (game.activeBoard.board[arr[0]][arr[1]] === 0) {
+        cell.style.background = "red";
+      } else {
+        cell.style.background = "green";
+      }
+    });
+    game.switchTurns();
   }
 
   boardDiv.addEventListener("click", clickHandlerBoard);

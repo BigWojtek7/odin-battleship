@@ -11,12 +11,20 @@ export default class Player {
   computerAttack(object) {
     let row = Math.floor(Math.random() * 10);
     let column = Math.floor(Math.random() * 10);
-    while (this.computerUsedNumbers.includes(`${row}${column}`)) {
+    let includes = this.computerUsedNumbers.some((a) =>
+      [row, column].every((v, i) => v === a[i]),
+    );
+    console.log("include", includes);
+    do {
       row = Math.floor(Math.random() * 10);
       column = Math.floor(Math.random() * 10);
-    }
-    this.computerUsedNumbers.push(`${row}${column}`);
-    console.log(this.computerUsedNumbers);
+      // eslint-disable-next-line no-loop-func
+      includes = this.computerUsedNumbers.some((a) =>
+        [row, column].every((v, i) => v === a[i]),
+      );
+    } while (includes);
+
+    this.computerUsedNumbers.push([row, column]);
     return object.receiveAttack(row, column);
   }
 }
