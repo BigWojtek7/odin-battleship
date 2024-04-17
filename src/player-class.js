@@ -14,7 +14,6 @@ export default class Player {
     let includes = this.computerUsedNumbers.some((a) =>
       [row, column].every((v, i) => v === a[i]),
     );
-    console.log("include", includes);
     do {
       row = Math.floor(Math.random() * 10);
       column = Math.floor(Math.random() * 10);

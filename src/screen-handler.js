@@ -6,7 +6,7 @@ import "./style.css";
 function screenHandler() {
   const game = new GameControl();
 
-  // const playerTurnDiv = document.querySelector(".turn");
+  const playerTurnDiv = document.querySelector(".turn");
   const boardDiv = document.querySelector(".board1");
   const boardDiv2 = document.querySelector(".board2");
 
@@ -18,6 +18,7 @@ function screenHandler() {
   game.boardPlayer2.dropShip(5, 4, 3);
   game.boardPlayer2.dropShip(6, 4, 3);
   game.boardPlayer2.dropShip(7, 4, 3);
+
 
   game.boardPlayer1.dropShip(0, 0, 4);
   game.boardPlayer1.dropShip(0, 1, 4);
@@ -67,10 +68,15 @@ function screenHandler() {
     } else {
       e.target.style.background = "green";
     }
+    console.log("wolter", game.activeBoard.isAllSunk())
+    if(game.activeBoard.isAllSunk()){
+      playerTurnDiv.textContent=`Player 1 won`
+
+    }
 
     game.switchTurns();
     game.activePlayer.computerAttack(game.activeBoard);
-    console.log("6", game.activePlayer.computerUsedNumbers);
+    
     game.activePlayer.computerUsedNumbers.forEach((arr) => {
       const cell = document.querySelector(
         `.cell2[data-row="${arr[0]}"][data-column="${arr[1]}"]`,
@@ -81,6 +87,10 @@ function screenHandler() {
         cell.style.background = "green";
       }
     });
+
+    if(game.activeBoard.isAllSunk()){
+      playerTurnDiv.textContent=`Player 2 won`
+    }
     game.switchTurns();
   }
 
