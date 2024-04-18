@@ -20,7 +20,6 @@ export default class Gameboard {
   }
 
   dropShip(array, shipLength) {
-    console.log("funny", array)
     const newShip = new Ship(shipLength);
     array.forEach( el => {
       this.board[el[0]][el[1]] = newShip;
@@ -43,9 +42,8 @@ export default class Gameboard {
       .filter((subArray) => subArray.length > 0)
       .map((row) => row[0]);
 
-    console.log("arr0", array);
     for (let i = 0; i < array.length; i += 1) {
-      // console.log("arr", array[i]);
+
       if (!array[i].isSunk()) return false;
     }
 

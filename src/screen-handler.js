@@ -10,45 +10,52 @@ function screenHandler() {
   const boardDiv2 = document.querySelector(".board2");
 
   game.boardPlayer2.dropShip(
-    [
-      [3, 4],
-      [3, 5],
-      [3, 6],
-      [3, 7],
-    ],
-    4,
+    [[3, 4],[3, 5],[3, 6],[3, 7],], 4,
   );
   game.boardPlayer2.dropShip(
-    [
-      [5, 4],
-      [6, 4],
-      [7, 4],
-    ],
-    3,
+    [[5, 4],[6, 4],[7, 4],], 3,
+  );
+  
+  game.boardPlayer2.dropShip(
+    [[0, 4],[0, 5],[0, 6],], 3,
+  );
+  
+  game.boardPlayer2.dropShip(
+    [[9, 3],[9, 4],], 2,
+  );
+  game.boardPlayer2.dropShip(
+    [[4,1],[4, 2],], 2,
+  );
+  game.boardPlayer2.dropShip(
+    [[9,7],[9, 8],], 2,
+  );
+  
+  game.boardPlayer1.dropShip(
+    [[3, 4],[3, 5],[3, 6],[3, 7],], 4,
+  );
+  game.boardPlayer1.dropShip(
+    [[5, 4],[6, 4],[7, 4],], 3,
+  );
+  
+  game.boardPlayer1.dropShip(
+    [[0, 4],[0, 5],[0, 6],], 3,
+  );
+  
+  game.boardPlayer1.dropShip(
+    [[9, 3],[9, 4],], 2,
+  );
+  game.boardPlayer1.dropShip(
+    [[4,1],[4, 2],], 2,
   );
 
   game.boardPlayer1.dropShip(
-    [
-      [3, 4],
-      [3, 5],
-      [3, 6],
-      [3, 7],
-    ],
-    4,
+    [[9,7],[9, 8],], 2,
   );
-  game.boardPlayer1.dropShip(
-    [
-      [5, 4],
-      [6, 4],
-      [7, 4],
-    ],
-    3,
-  );
-  console.log(game.boardPlayer2.board);
 
   // const getCoordinates = () => {
   //   const dialog = document.getElementById("welcome-dialog");
   //   const dialogBoard = document.getElementById("dialog-board");
+
 
   // };
 
