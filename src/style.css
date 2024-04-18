@@ -1,5 +1,11 @@
-*{ box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
+.container {
+  margin-top: 20px;
+  display: flex;
+}
 .board1,
 .board2 {
   display: grid;
