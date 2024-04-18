@@ -2,7 +2,6 @@ import GameControl from "./game-control-class";
 
 import "./style.css";
 
-
 function screenHandler() {
   const game = new GameControl();
 
@@ -10,33 +9,48 @@ function screenHandler() {
   const boardDiv = document.querySelector(".board1");
   const boardDiv2 = document.querySelector(".board2");
 
-  
+  game.boardPlayer2.dropShip(
+    [
+      [3, 4],
+      [3, 5],
+      [3, 6],
+      [3, 7],
+    ],
+    4,
+  );
+  game.boardPlayer2.dropShip(
+    [
+      [5, 4],
+      [6, 4],
+      [7, 4],
+    ],
+    3,
+  );
 
-  game.boardPlayer2.dropShip([[3,4],[3,5],[3,6],[3,7]],4)
-  game.boardPlayer2.dropShip([[5,4],[6,4],[7,4]],3)
+  game.boardPlayer1.dropShip(
+    [
+      [3, 4],
+      [3, 5],
+      [3, 6],
+      [3, 7],
+    ],
+    4,
+  );
+  game.boardPlayer1.dropShip(
+    [
+      [5, 4],
+      [6, 4],
+      [7, 4],
+    ],
+    3,
+  );
+  console.log(game.boardPlayer2.board);
 
-  game.boardPlayer1.dropShip([[3,4],[3,5],[3,6],[3,7]],4)
-  game.boardPlayer1.dropShip([[5,4],[6,4],[7,4]],3)
-  console.log(game.boardPlayer2.board)
+  // const getCoordinates = () => {
+  //   const dialog = document.getElementById("welcome-dialog");
+  //   const dialogBoard = document.getElementById("dialog-board");
 
-  // game.boardPlayer2.dropShip(3, 4, 4);
-  // game.boardPlayer2.dropShip(3, 5, 4);
-  // game.boardPlayer2.dropShip(3, 6, 4);
-  // game.boardPlayer2.dropShip(3, 7, 4);
-
-  // game.boardPlayer2.dropShip(5, 4, 3);
-  // game.boardPlayer2.dropShip(6, 4, 3);
-  // game.boardPlayer2.dropShip(7, 4, 3);
-
-
-  // game.boardPlayer1.dropShip(0, 0, 4);
-  // game.boardPlayer1.dropShip(0, 1, 4);
-  // game.boardPlayer1.dropShip(0, 2, 4);
-  // game.boardPlayer1.dropShip(0, 3, 4);
-
-  // game.boardPlayer1.dropShip(2, 4, 3);
-  // game.boardPlayer1.dropShip(3, 4, 3);
-  // game.boardPlayer1.dropShip(4, 4, 3);
+  // };
 
   const updateDisplay = () => {
     boardDiv.textContent = "";
@@ -77,15 +91,14 @@ function screenHandler() {
     } else {
       e.target.style.background = "green";
     }
-    console.log("wolter", game.activeBoard.isAllSunk())
-    if(game.activeBoard.isAllSunk()){
-      playerTurnDiv.textContent=`Player 1 won`
-
+    e.target.disabled = true;
+    if (game.activeBoard.isAllSunk()) {
+      playerTurnDiv.textContent = `Player 1 won`;
     }
 
     game.switchTurns();
     game.activePlayer.computerAttack(game.activeBoard);
-    
+
     game.activePlayer.computerUsedNumbers.forEach((arr) => {
       const cell = document.querySelector(
         `.cell2[data-row="${arr[0]}"][data-column="${arr[1]}"]`,
@@ -97,8 +110,8 @@ function screenHandler() {
       }
     });
 
-    if(game.activeBoard.isAllSunk()){
-      playerTurnDiv.textContent=`Player 2 won`
+    if (game.activeBoard.isAllSunk()) {
+      playerTurnDiv.textContent = `Player 2 won`;
     }
     game.switchTurns();
   }

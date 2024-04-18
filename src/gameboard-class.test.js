@@ -9,7 +9,15 @@ describe("gameboard", () => {
     expect(gameboard.board[1][3]).toBe(null);
   });
   test("ship placement", () => {
-    gameboard.dropShip(3, 4, 4);
+    gameboard.dropShip(
+      [
+        [3, 4],
+        [3, 5],
+        [3, 6],
+        [3, 7],
+      ],
+      4,
+    );
     expect(gameboard.board[3][4]).toMatchObject({ length: 4, numberOfHits: 0 });
   });
 
@@ -20,7 +28,6 @@ describe("gameboard", () => {
     expect(gameboard.receiveAttack(3, 4)).toBe(true);
   });
   test("all sunk", () => {
-    gameboard.dropShip(1, 2, 3);
     expect(gameboard.isAllSunk()).toBe(false);
   });
 });
